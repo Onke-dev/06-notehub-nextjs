@@ -17,7 +17,7 @@ function SearchBox({ onChangeSearch, value }: SearchBoxProps) {
     <input
       className={css.input}
       type="text"
-      defaultValue={value}
+      value={value}
       placeholder="Search notes"
       onChange={handleChange}
     />

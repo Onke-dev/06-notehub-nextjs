@@ -1,9 +1,8 @@
-"use client";
-
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import css from "./NoteForm.module.css";
 import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 import type { NewNoteBody } from "../../types/note";
 import { createNote } from "@/lib/api";
 
@@ -30,7 +29,8 @@ const validationSchema = Yup.object().shape({
     .required("Title is required"),
   content: Yup.string()
     .min(2, "Content is too short")
-    .max(500, "Content is too long"),
+    .max(500, "Content is too long")
+    .optional(),
   tag: Yup.string()
     .oneOf(
       ["Todo", "Work", "Personal", "Meeting", "Shopping"],
