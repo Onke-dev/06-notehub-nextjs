@@ -1,4 +1,5 @@
 "use client";
+
 import { createPortal } from "react-dom";
 import css from "./Modal.module.css";
 import { useEffect } from "react";
@@ -22,8 +23,10 @@ function Modal({ onClose, children }: ModalProps) {
       }
     };
     document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
     };
   }, [onClose]);
 
