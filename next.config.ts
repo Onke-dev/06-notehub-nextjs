@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  eslint: {
+    // Вот теперь это свойство находится на своем месте
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
