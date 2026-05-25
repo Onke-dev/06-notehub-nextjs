@@ -24,6 +24,7 @@ const initialValues: NoteListValues = {
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
+    .transform((value)=>(value === "" ? undefined : value))
     .min(3, "Title is too short")
     .max(50, "Title is too long")
     .required("Title is required"),
