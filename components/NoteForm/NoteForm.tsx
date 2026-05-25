@@ -28,10 +28,7 @@ const validationSchema = Yup.object().shape({
     .max(50, "Title is too long")
     .required("Title is required"),
   content: Yup.string()
-    .transform((value) => (value === "" ? undefined : value))
-    .min(2, "Content is too short")
-    .max(500, "Content is too long")
-    .optional(),
+    .max(500, "Content is too long"),
   tag: Yup.string()
     .oneOf(
       ["Todo", "Work", "Personal", "Meeting", "Shopping"],
